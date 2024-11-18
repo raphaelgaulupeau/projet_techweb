@@ -16,12 +16,20 @@ const educationData = {
     }
 };
 
-function updateChart() {
+let chart;
+
+function majGraph() {
     const country = document.getElementById('countrySelect').value;
     const year = document.getElementById('yearSelect').value;
     const data = educationData[country][year];
 
-    new Chart('educationChart', {
+    const ctx = document.getElementById('educationChart').getContext('2d');
+
+    if (chart) {
+        chart.destroy();
+    }
+
+    chart = new Chart(ctx, {
         type: 'pie',
         data: {
             labels: ['Pas d\'études', 'Moins de 2 ans', 'De 2 à 5 ans', 'Plus de 5 ans'],
@@ -32,15 +40,17 @@ function updateChart() {
         },
         options: {
             responsive: true,
-            title: {
-                display: true,
-                text: `Niveaux d'éducation en ${country} (${year})`
+            plugins: {
+                title: {
+                    display: true,
+                    text: `Niveaux d'éducation en ${country} (${year})`
+                }
             }
         }
     });
 }
 
-document.getElementById('countrySelect').addEventListener('change', updateChart);
-document.getElementById('yearSelect').addEventListener('change', updateChart);
+document.getElementById('countrySelect').addEventListener('change', majGraph);
+document.getElementById('yearSelect').addEventListener('change', majGraph);
 
-updateChart();
+majGraph();
