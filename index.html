@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niveaux d'Éducation en Europe</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Niveaux d'Éducation en Europe</h1>
+        <div class="controls">
+            <div class="select-wrapper">
+                <label for="countrySelect">Pays:</label>
+                <select id="countrySelect">
+                    <option value="france">France</option>
+                    <option value="allemagne">Allemagne</option>
+                    <option value="italie">Italie</option>
+                </select>
+            </div>
+            <div class="select-wrapper">
+                <label for="yearSelect">Année:</label>
+                <select id="yearSelect">
+                    <option value="2010">2010</option>
+                    <option value="2015">2015</option>
+                    <option value="2020">2020</option>
+                </select>
+            </div>
+        </div>
+        <div class="chart-container">
+            <canvas id="educationChart"></canvas>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
